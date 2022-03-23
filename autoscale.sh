@@ -46,7 +46,7 @@ while true; do
         currentPods=$(getCurrentPods)
 
         if [[ $currentPods != "" ]]; then
-          if [[ $requiredPods -ne $currentPods ]]; then
+          if [[ $requiredPods -ne $currentPods || $currentPods -lt $minPods ]]; then
             desiredPods=""
             # Flag used to prevent scaling down or up if currentPods are already min or max respectively.
             scale=0
